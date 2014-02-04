@@ -3138,9 +3138,9 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
 
         // Relay news
         {
-            LOCK(cs_mapNewsMessages);
-            BOOST_FOREACH(PAIRTYPE(const uint256, CNewsMessage)& item, mapNewsMessages)
-                item.second.RelayTo(pfrom);
+            //LOCK(cs_mapNewsMessages);
+            //BOOST_FOREACH(PAIRTYPE(const uint256, CNewsMessage)& item, mapNewsMessages)
+             //   item.second.RelayTo(pfrom);
         }
 
         pfrom->fSuccessfullyConnected = true;
@@ -3629,7 +3629,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
         }
     }
 
-    else if (strCommand == "news")
+    /*else if (strCommand == "news")
     {
         CNewsMessage message;
         vRecv >> message;
@@ -3651,7 +3651,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
                 pfrom->Misbehaving(10);
             }
         }
-    }
+    }*/
 
     else if (strCommand == "filterload")
     {
