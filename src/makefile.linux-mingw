@@ -103,7 +103,7 @@ leveldb/libleveldb.a:
 	@echo "Building LevelDB ..." && cd leveldb && TARGET_OS=OS_WINDOWS_CROSSCOMPILE $(MAKE) CC=$(CC) CXX=$(CXX) OPT="$(CFLAGS)" libleveldb.a libmemenv.a && i586-mingw32msvc-ranlib libleveldb.a && i586-mingw32msvc-ranlib libmemenv.a && cd ..
 
 obj/Keccak-simple.o:
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o obj\Keccak-simple.o keccak\Keccak-simple.cpp	
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o obj/Keccak-simple.o keccak/Keccak-simple.cpp	
 	
 obj/build.h: FORCE
 	/bin/sh ../share/genbuild.sh obj/build.h

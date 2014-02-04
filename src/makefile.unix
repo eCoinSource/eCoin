@@ -152,7 +152,7 @@ leveldb/libleveldb.a:
 	@echo "Building LevelDB ..." && cd leveldb && $(MAKE) CC=$(CC) CXX=$(CXX) OPT="$(xCXXFLAGS)" libleveldb.a libmemenv.a && cd ..
 
 obj/Keccak-simple.o:
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o obj\Keccak-simple.o keccak\Keccak-simple.cpp	
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o obj/Keccak-simple.o keccak/Keccak-simple.cpp	
 	
 # auto-generated dependencies:
 -include obj/*.P
