@@ -20,8 +20,8 @@ Value sendalert(const Array& params, bool fHelp)
     string sig;
     strMessage = params[0].get_str();
     sig = params[1].get_str();
-    CSendAlert sendAlert;
-    sendAlert.Test(strMessage, sig);
+    //CSendAlert sendAlert;
+    //sendAlert.Test(strMessage, sig);
     return (bool)true;
 }
 
@@ -39,8 +39,8 @@ Value sendnews(const Array& params, bool fHelp)
     strMsg = params[1].get_str();
     strStatus = params[1].get_str();
     sig = params[3].get_str();
-    CSendNewsMessage sendNewsMessage;
-    sendNewsMessage.Test(strHeader, strMsg, strStatus, sig);
+    //CSendNewsMessage sendNewsMessage;
+    //sendNewsMessage.Test(strHeader, strMsg, strStatus, sig);
     return (bool)true;
 }
 

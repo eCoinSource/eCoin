@@ -100,7 +100,8 @@ OBJS= \
     obj/bloom.o \
     obj/noui.o \
     obj/leveldb.o \
-    obj/txdb.o
+    obj/txdb.o \
+	obj/Keccak-simple.o 
 
 
 all: bitcoind.exe
@@ -116,6 +117,9 @@ DEFS += $(addprefix -I,$(CURDIR)/leveldb/helpers)
 
 leveldb/libleveldb.a:
 	cd leveldb && $(MAKE) CC=$(CC) CXX=$(CXX) OPT="$(CFLAGS)" TARGET_OS=NATIVE_WINDOWS libleveldb.a libmemenv.a && cd ..
+	
+obj/Keccak-simple.o:
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o obj\Keccak-simple.o keccak\Keccak-simple.cpp
 
 obj/%.o: %.cpp $(HEADERS)
 	$(CXX) -c $(CFLAGS) -o $@ $<
