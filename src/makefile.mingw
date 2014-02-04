@@ -104,7 +104,7 @@ OBJS= \
 	obj/Keccak-simple.o 
 
 
-all: bitcoind.exe
+all: ecoind.exe
 
 test check: test_bitcoin.exe FORCE
 	test_bitcoin.exe
@@ -124,7 +124,7 @@ obj/Keccak-simple.o:
 obj/%.o: %.cpp $(HEADERS)
 	$(CXX) -c $(CFLAGS) -o $@ $<
 
-bitcoind.exe: $(OBJS:obj/%=obj/%)
+ecoind.exe: $(OBJS:obj/%=obj/%)
 	$(CXX) $(CFLAGS) $(LDFLAGS) -o $@ $(LIBPATHS) $^ $(LIBS)
 
 TESTOBJS := $(patsubst test/%.cpp,obj-test/%.o,$(wildcard test/*.cpp))
@@ -136,7 +136,7 @@ test_bitcoin.exe: $(TESTOBJS) $(filter-out obj/init.o,$(OBJS:obj/%=obj/%))
 	$(CXX) $(CFLAGS) $(LDFLAGS) -o $@ $(LIBPATHS) $^ -lboost_unit_test_framework$(BOOST_SUFFIX) $(LIBS)
 
 clean:
-	rm -f bitcoind.exe test_bitcoin.exe
+	rm -f ecoind.exe test_bitcoin.exe
 	rm -f obj/*
 	rm -f obj-test/*
 	cd leveldb && $(MAKE) TARGET_OS=NATIVE_WINDOWS clean && cd ..
